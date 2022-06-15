@@ -35,8 +35,6 @@ class MainActivity : AppCompatActivity() {
             }
             timerList.add(nightTimer)               //add new Timer to the list
             nightMode(nightTimer)
-//            disableButton(binding.nightMode)
-//            enableButton(binding.normalMode)
         }
 
         binding.normalMode.setOnClickListener {
@@ -48,8 +46,6 @@ class MainActivity : AppCompatActivity() {
             }
             timerList.add(normalTimer)               //add new Timer to the list
             normalMode(normalTimer)
-//            enableButton(binding.nightMode)
-//            disableButton(binding.normalMode)
         }
 
         binding.buttonPower.setOnClickListener {
@@ -77,21 +73,16 @@ class MainActivity : AppCompatActivity() {
     private fun disableButton(button: ImageButton) {
         button.isEnabled = false
         button.isClickable = false
-//        button.setImageResource(R.drawable.button_default_disabled)
-//        button.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
     }
 
     private fun enableButton(button: ImageButton) {
         button.isEnabled = true
         button.isClickable = true
-//        button.setImageResource(R.drawable.button_default)
-//        button.setImageResource(R.drawable.button_default)
-//        button.setBackgroundColor(Color.parseColor("#616161"))
     }
 
     private fun normalMode(timer: Timer): Unit {
 
-        timer.scheduleAtFixedRate(0, 17000) {
+        timer.scheduleAtFixedRate(0, 17000) {           //start repeatable timer action
 
             binding.redLight.setImageResource(R.drawable.red_light)
             binding.yellowLight.setImageResource(R.drawable.light_off)
@@ -118,7 +109,7 @@ class MainActivity : AppCompatActivity() {
         binding.redLight.setImageResource(R.drawable.light_off)
         binding.greenLight.setImageResource(R.drawable.light_off)
 
-        timer.scheduleAtFixedRate(0, 1000) {
+        timer.scheduleAtFixedRate(0, 1000) {           //start repeatable timer action
             if (i % 2 == 0) {
                 binding.yellowLight.setImageResource(R.drawable.light_off)
             } else binding.yellowLight.setImageResource(R.drawable.yellow_light)
